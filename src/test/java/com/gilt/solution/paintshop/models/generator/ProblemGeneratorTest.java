@@ -3,8 +3,6 @@ package com.gilt.solution.paintshop.models.generator;
 import com.gilt.solution.paintshop.models.Problem;
 import org.junit.Test;
 
-import java.io.IOException;
-
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
