@@ -22,9 +22,9 @@ public class Solver {
 
     private static final Logger log = LoggerFactory.getLogger(Solver.class);
 
-    private static final String GLOSS = "G";
-    private static final String MATTE = "M";
-    private static final String NO_SOLUTION_EXISTS = "No solution exists";
+    public static final String GLOSS = "G";
+    public static final String MATTE = "M";
+    public static final String NO_SOLUTION_EXISTS = "No solution exists";
 
     private final int numColours;
     private final List<Customer> customers;
@@ -47,6 +47,7 @@ public class Solver {
     public String solve() {
 
         if (numColours == 0) {
+            log.info("Problem has 0 colours");
             return NO_SOLUTION_EXISTS;
         }
 
@@ -70,6 +71,7 @@ public class Solver {
         if (solutions.size() > 0) {
             solution = formatSolution(findMinimalCostBatch(solutions));
         }
+        log.info("Solution is [{}]", solution);
         return solution;
     }
 
@@ -111,6 +113,7 @@ public class Solver {
         if (solution.length() == numColours) {
             if (acceptSolution(solution)) {
                 solutions.add(solution);
+                log.info("Accepting solution [{}], current solution count is {}", solution, solutions.size());
             }
             return;
         }

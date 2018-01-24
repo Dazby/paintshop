@@ -37,8 +37,14 @@ public class SolverTest {
     }
 
     private void assertOutput(String inputFilePath, String outputFilePath) {
+
+        // Given
         String expectedOutput = getExpectedOutput(outputFilePath);
+
+        // When
         String solution = getSolver(inputFilePath).solve();
+
+        // Then
         assertThat(expectedOutput, is(solution));
     }
 
